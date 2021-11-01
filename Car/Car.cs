@@ -21,6 +21,24 @@ public class Car : KinematicBody2D {
     private float _tractionSlow = 0.7f;  //Low-speed traction
 
 
+    private bool allowInput = true;
+
+    private CustomSignals _cs;
+
+
+   public override void _Ready() {
+        _cs = GetNode<CustomSignals>("/root/CS");
+        _cs.Connect("raceOver", this, "ToggleInput");
+    }
+
+
+    public void ToggleInput() {
+        allowInput = false;
+    }
+
+
+
+
     public override void _PhysicsProcess(float delta) {
         _acceleration = Vector2.Zero;
 
@@ -35,6 +53,10 @@ public class Car : KinematicBody2D {
 
 
     private void GetInput() {
+        if(!allowInput) {
+            return;
+        }
+
         float turn = Input.GetActionStrength("right") - Input.GetActionStrength("left");
         _steerAngle = turn * Mathf.Deg2Rad(_steeringAngle);
         

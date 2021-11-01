@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/GameUI.cs" type="Script" id=1]
+
+[node name="GameUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblLapCounter" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -63.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 23.0
+text = "Lap: 1/3"
+align = 2
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Sprites/kenney_racingpack_updated (1)/Spritesheets/spritesheet_tiles.png" type="Texture" id=1]
 [ext_resource path="res://Car/Car.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/CheckPoint/CheckPoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/GameUI.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 128, 0, 128, 32, 0, 32 )
@@ -165,3 +166,13 @@ _nextCheckPoint = NodePath("../CheckPoint")
 [node name="Car" parent="." instance=ExtResource( 2 )]
 position = Vector2( 366, 107 )
 _enginePoser = 1500.0
+
+[node name="GameUI" parent="." instance=ExtResource( 4 )]
+anchor_left = 1.0
+anchor_top = 1.0
+margin_left = -658.0
+margin_top = -493.0
+margin_right = 366.0
+margin_bottom = 107.0
+rect_scale = Vector2( 2, 2 )
+_followTarget = NodePath("../Car")
